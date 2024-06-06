@@ -1,3 +1,77 @@
-h1 {
-    color: red;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.button-container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.btn {
+    flex: 1;
+    border: none;
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-1 {
+    background-color: #4CAF50; /* Green */
+}
+
+.btn-2 {
+    background-color: #2196F3; /* Blue */
+}
+
+.btn-3 {
+    background-color: #ff5722; /* Orange */
+}
+
+.btn-4 {
+    background-color: #9c27b0; /* Purple */
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+main {
+    margin-top: 60px; /* Add space to account for the fixed button container */
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+#section1 {
+    background-color: #4CAF50; /* Blue background for section 4 */
+    color: white;
+    padding: 20px;
+}
+
+#section2 {
+    background-color: #2196F3; /* Blue background for section 4 */
+    color: white;
+    padding: 20px;
+}
+
+#section3 {
+    background-color: #ff5722; /* Blue background for section 4 */
+    color: white;
+    padding: 20px;
+}
+
+#section4 {
+    background-color: #9c27b0; /* Blue background for section 4 */
+    color: white;
+    padding: 20px;
 }
