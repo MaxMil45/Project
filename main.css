@@ -39,6 +39,15 @@ body {
     background-color: #9c27b0; /* Purple */
 }
 
+.SignIn {
+    padding: 30px;
+}
+
+.SignUp {
+    padding: 30px;
+    right: 30%;
+}
+
 .btn:hover {
     opacity: 0.8;
 }
@@ -74,4 +83,34 @@ section {
     background-color: #9c27b0; /* Blue background for section 4 */
     color: white;
     padding: 20px;
+}
+
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    gap: 40px;
+    width: 30%;
+    margin: 0 auto;
+    transition: background-color 0.3s;
+    position: center;
+    border-radius: 8px;
+    padding: 30px;
+    border: 7px solid rgb(176, 0, 0);
+}
+
+#login .btn {
+    display: flex;
+    width: 100px; /* Set a fixed width for buttons */
+    border-radius: 8px;
+}
+
+#login .SignIn {
+    background-color: #2a00c1;
+}
+
+#login .SignUp {
+    background-color: #2196F3;
 }

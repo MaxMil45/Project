@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buttons Example</title>
-    <link rel="stylesheet" href="game2.css">
+    <title>Game Interface</title>
+    <link rel="stylesheet" href="tv2.css">
 </head>
 <body>
-    <div class="button-container">
-        <button class="btn">Button 1</button>
-        <button class="btn">Button 2</button>
-        <button class="btn">Button 3</button>
-        <button class="btn">Button 4</button>
+    <div class="container">
+        <h1>Categories</h1>
+        <div class="categories">
+            <button class="category-button" data-category="action">Story</button>
+            <button class="category-button" data-category="comedy">Zombies</button>
+            <button class="category-button" data-category="drama">Multiplayer</button>
+            <!-- Add more categories as needed -->
+        </div>
+
+        <div class="shows" id="shows"></div>
     </div>
-    <div class="border-box">
-        This is a div with a border.
-    </div>
-    <p class="border-paragraph">
-        This is a paragraph with a border.
-    </p>
-    <button class="border-button">Button with Border</button>
+
+    <script src="tv3.js"></script>
 </body>
 </html>

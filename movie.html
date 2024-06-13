@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Borders Example</title>
+    <title>Game Interface</title>
     <link rel="stylesheet" href="movie2.css">
 </head>
 <body>
-    <body>
-        <div class="top"></div>
-        <div class="left"></div>
-        <div class="right"></div>
-        <div class="content">
-            This is the content area.
+    <div class="container">
+        <h1>Categories</h1>
+        <div class="categories">
+            <button class="category-button" data-category="action">Story</button>
+            <button class="category-button" data-category="comedy">Zombies</button>
+            <button class="category-button" data-category="drama">Multiplayer</button>
+            <!-- Add more categories as needed -->
         </div>
-    </body>
+
+        <div class="shows" id="shows"></div>
+    </div>
+
+    <script src="movie3.js"></script>
 </body>
 </html>
