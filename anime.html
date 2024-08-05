@@ -3,75 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Netflix Clone</title>
+    <title>Gaming Reviews</title>
     <link rel="stylesheet" href="anime2.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>Anime</h1>
-
+    <div class="container">
+        <h1>Game Categories</h1>
+        <div class="categories">
+            <button class="category-button" data-category="story">Story</button>
+            <button class="category-button" data-category="zombies">Zombies</button>
+            <button class="category-button" data-category="multiplayer">Multiplayer</button>
+            <!-- Add more categories as needed -->
         </div>
-    </header>
-    <main>
-        <section class="originals">
-            <h2>Anime</h2>
-            <p>Discover amazing original anime programming that you can’t find anywhere else. Movies, TV shows, specials, and more, tailored specifically to you. Watch now for free.</p>
-        </section>
-        </section>
-        <section class="categories">
-            <div class="category">
-                <h3>Drama Programmes</h3>
-                <div class="row">
-                    <div class="title">
-                        <img src="pokemon.jpg" alt="Lupin">
-                        <p>Lupin</p>
-                    </div>
-                    <div class="title">
-                        <img src="pokemon.jpg" alt="Cobra Kai">
-                        <p>Cobra Kai</p>
-                    </div>
-                    <div class="title">
-                        <img src="pokemon.jpg" alt="Bridgerton">
-                        <p>Bridgerton</p>
-                    </div>
-                </div>
-            </div>
-            <div class="category">
-                <h3>Sci-Fi & Fantasy Programmes</h3>
-                <div class="row">
-                    <div class="title">
-                        <img src="pokemon.jpg" alt="Stranger Things">
-                        <p>Stranger Things</p>
-                    </div>
-                    <div class="title">
-                        <img src="pokemon.jpg" alt="Lucifer">
-                        <p>Lucifer</p>
-                    </div>
-                    <div class="title">
-                        <img src="pokemon.jpg" alt="Disenchantment">
-                        <p>Disenchantment</p>
-                    </div>
-                </div>
-            </div>
-            <div class="category">
-                <h3>New Releases</h3>
-                <div class="row">
-                    <div class="title">
-                        <img src="pokemon.jpg" alt="Money Heist">
-                        <p>Money Heist</p>
-                    </div>
-                    <div class="title">
-                        <img src="pokemon.jpg" alt="Undercover">
-                        <p>Undercover</p>
-                    </div>
-                    <div class="title">
-                        <img src="pokemon.jpg" alt="Riverdale">
-                        <p>Riverdale</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+
+        <div class="games" id="games"></div>
+    </div>
+
+    <!-- Modal for game details -->
+    <div id="game-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="game-image" src="" alt="Game Image">
+            <h3 id="game-title"></h3>
+            <p id="game-rating"></p>
+            <p id="game-developer"></p>
+            <p id="game-release-year"></p>
+            <p id="game-description"></p>
+        </div>
+    </div>
+
+    <script src="anime3.js"></script>
 </body>
 </html>

@@ -3,20 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Interface</title>
+    <title>Gaming Reviews</title>
     <link rel="stylesheet" href="tv2.css">
 </head>
 <body>
     <div class="container">
-        <h1>Categories</h1>
+        <h1>Game Categories</h1>
         <div class="categories">
-            <button class="category-button" data-category="action">Story</button>
-            <button class="category-button" data-category="comedy">Zombies</button>
-            <button class="category-button" data-category="drama">Multiplayer</button>
+            <button class="category-button" data-category="story">Story</button>
+            <button class="category-button" data-category="zombies">Zombies</button>
+            <button class="category-button" data-category="multiplayer">Multiplayer</button>
             <!-- Add more categories as needed -->
         </div>
 
-        <div class="shows" id="shows"></div>
+        <div class="games" id="games"></div>
+    </div>
+
+    <!-- Modal for game details -->
+    <div id="game-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="game-image" src="" alt="Game Image">
+            <h3 id="game-title"></h3>
+            <p id="game-rating"></p>
+            <p id="game-developer"></p>
+            <p id="game-release-year"></p>
+            <p id="game-description"></p>
+        </div>
     </div>
 
     <script src="tv3.js"></script>

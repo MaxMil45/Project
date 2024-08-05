@@ -59,6 +59,7 @@ main {
 
 section {
     margin-bottom: 20px;
+    border-radius: 15px;
 }
 
 #section1 {
@@ -98,7 +99,6 @@ section {
     position: center;
     border-radius: 8px;
     padding: 30px;
-    border: 7px solid rgb(176, 0, 0);
 }
 
 #login .btn {

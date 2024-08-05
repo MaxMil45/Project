@@ -3,20 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Interface</title>
+    <title>Movie Reviews</title>
     <link rel="stylesheet" href="movie2.css">
 </head>
 <body>
     <div class="container">
         <h1>Categories</h1>
         <div class="categories">
-            <button class="category-button" data-category="action">Story</button>
-            <button class="category-button" data-category="comedy">Zombies</button>
-            <button class="category-button" data-category="drama">Multiplayer</button>
+            <button class="category-button" data-table="movies" data-category="drama">Drama Movies</button>
+            <button class="category-button" data-table="movies" data-category="crime">Crime Movies</button>
+            <button class="category-button" data-table="movies" data-category="action">Action Movies</button>
+            <button class="category-button" data-table="games" data-category="adventure">Adventure Games</button>
+            <button class="category-button" data-table="games" data-category="puzzle">Puzzle Games</button>
             <!-- Add more categories as needed -->
         </div>
 
-        <div class="shows" id="shows"></div>
+        <div class="movies" id="movies"></div>
+    </div>
+
+    <!-- Modal for movie details -->
+    <div id="movie-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="movie-image" src="" alt="Movie Image">
+            <h3 id="movie-title"></h3>
+            <p id="movie-category"></p>
+            <p id="movie-age-rating"></p>
+            <p id="movie-review-score"></p>
+            <p id="movie-duration"></p>
+        </div>
     </div>
 
     <script src="movie3.js"></script>

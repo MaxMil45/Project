@@ -15,7 +15,6 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: rgb(73, 158, 255);
 }
 
 form {
@@ -31,4 +30,20 @@ input {
     padding: 5px;
     width: 100%;
     max-width: 300px;
+}
+
+#signupBtn {
+    background-color: brown;
+}
+
+#signinBtn {
+    background-color: rgb(17, 68, 250);
+}
+
+#signupForm {
+    background-color: rgb(171, 84, 84);
+}
+
+#signinForm {
+    background-color: rgb(77, 99, 180);
 }

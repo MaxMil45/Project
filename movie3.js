@@ -1,46 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const showsContainer = document.getElementById('shows');
-    const categories = {
-        action: [
-            { title: 'Story Game 1', img: 'pokemon.jpg' },
-            { title: 'Story Game 2', img: 'pokemon.jpg' }
-        ],
-        comedy: [
-            { title: 'Zombie Game 1', img: 'pokemon.jpg' },
-            { title: 'Zombie Game 2', img: 'pokemon.jpg' }
-        ],
-        drama: [
-            { title: 'Multiplayer Game 1', img: 'pokemon.jpg', rating: '50%'},
-            { title: 'Multiplayer Game 2', img: 'pokemon.jpg' },
-            { title: 'Multiplayer Game 3', img: 'pokemon.jpg' },
-            { title: 'Multiplayer Game 4', img: 'pokemon.jpg' },
-            { title: 'Multiplayer Game 5', img: 'pokemon.jpg' },
-            { title: 'Multiplayer Game 6', img: 'pokemon.jpg' },
-            { title: 'Multiplayer Game 7', img: 'pokemon.jpg' }
-        ]
-    };
+    const moviesContainer = document.getElementById('movies');
+    const modal = document.getElementById('movie-modal');
+    const closeButton = document.querySelector('.close-button');
+    const movieImage = document.getElementById('movie-image');
+    const movieTitle = document.getElementById('movie-title');
+    const movieCategory = document.getElementById('movie-category');
+    const movieAgeRating = document.getElementById('movie-age-rating');
+    const movieReviewScore = document.getElementById('movie-review-score');
+    const movieDuration = document.getElementById('movie-duration');
 
-    const loadShows = (category) => {
-        showsContainer.innerHTML = '';
-        categories[category].forEach(show => {
-            const showElement = document.createElement('div');
-            showElement.classList.add('show');
-            showElement.innerHTML = `
-                <img src="${show.img}" alt="${show.title}">
-                <h3>${show.title}</h3>
-                <p>${show.rating}</p>
-            `;
-            showsContainer.appendChild(showElement);
-        });
+    const loadMovies = (table, category) => {
+        fetch(`getGames.php?table=${table}&category=${category}`)
+            .then(response => response.json())
+            .then(data => {
+                moviesContainer.innerHTML = '';
+                data.forEach(item => {
+                    const movieElement = document.createElement('div');
+                    movieElement.classList.add('movie');
+                    movieElement.innerHTML = `
+                        <img src="${item.PosterURL}" alt="${item.Title}">
+                        <h3>${item.Title}</h3>
+                        <p>Rating: ${item.ReviewScore}</p>
+                    `;
+                    movieElement.addEventListener('click', () => {
+                        movieImage.src = item.PosterURL;
+                        movieTitle.textContent = item.Title;
+                        movieCategory.textContent = `Category: ${item.category}`;
+                        movieAgeRating.textContent = `Age Rating: ${item.AgeRating}`;
+                        movieReviewScore.textContent = `Review Score: ${item.ReviewScore}`;
+                        movieDuration.textContent = `Duration: ${item.Duration} mins`;
+                        modal.style.display = 'block';
+                    });
+                    moviesContainer.appendChild(movieElement);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
     };
 
     document.querySelectorAll('.category-button').forEach(button => {
         button.addEventListener('click', () => {
+            const table = button.getAttribute('data-table');
             const category = button.getAttribute('data-category');
-            loadShows(category);
+            loadMovies(table, category);
         });
     });
 
+    closeButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
     // Load the first category by default
-    loadShows('action');
+    loadMovies('movies', 'drama');
 });
