@@ -55,5 +55,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Load the first category by default
-    loadGames('story');
+    loadShows('games', 'comedy');
 });

@@ -1,46 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const gamesContainer = document.getElementById('games');
-    const modal = document.getElementById('game-modal');
+    const showsContainer = document.getElementById('shows');
+    const modal = document.getElementById('show-modal');
     const closeButton = document.querySelector('.close-button');
-    const gameImage = document.getElementById('game-image');
-    const gameTitle = document.getElementById('game-title');
-    const gameRating = document.getElementById('game-rating');
-    const gameDeveloper = document.getElementById('game-developer');
-    const gameReleaseYear = document.getElementById('game-release-year');
-    const gameDescription = document.getElementById('game-description');
+    const showImage = document.getElementById('show-image');
+    const showTitle = document.getElementById('show-title');
+    const showCategory = document.getElementById('show-category');
+    const showAgeRating = document.getElementById('show-age-rating');
+    const showReviewScore = document.getElementById('show-review-score');
+    const showSeasons = document.getElementById('show-seasons');
+    const showEpisodes = document.getElementById('show-episodes');
 
-    const loadGames = (category) => {
-        fetch(`getGames.php?category=${category}`)
+    const loadShows = (table, category) => {
+        fetch(`getGames.php?table=${table}&category=${category}`) // Ensure this matches your PHP file name
             .then(response => response.json())
-            .then(games => {
-                gamesContainer.innerHTML = '';
-                games.forEach(game => {
-                    const gameElement = document.createElement('div');
-                    gameElement.classList.add('game');
-                    gameElement.innerHTML = `
-                        <img src="${game.img}" alt="${game.title}">
-                        <h3>${game.title}</h3>
-                        <p>Rating: ${game.rating}</p>
+            .then(data => {
+                showsContainer.innerHTML = '';
+                data.forEach(item => {
+                    const showElement = document.createElement('div');
+                    showElement.classList.add('show');
+                    showElement.innerHTML = `
+                        <img src="${item.PosterURL}" alt="${item.Title}">
+                        <h3>${item.Title}</h3>
+                        <p>Rating: ${item.ReviewScore}</p>
                     `;
-                    gameElement.addEventListener('click', () => {
-                        gameImage.src = game.img;
-                        gameTitle.textContent = game.title;
-                        gameRating.textContent = `Rating: ${game.rating}`;
-                        gameDeveloper.textContent = `Developer: ${game.developer}`;
-                        gameReleaseYear.textContent = `Release Year: ${game.release_year}`;
-                        gameDescription.textContent = `Description: ${game.description}`;
+                    showElement.addEventListener('click', () => {
+                        showImage.src = item.PosterURL;
+                        showTitle.textContent = item.Title;
+                        showAgeRating.textContent = `Age Rating: ${item.AgeRating}`;
+                        showReviewScore.textContent = `Review Score: ${item.ReviewScore}`;
+                        showSeasons.textContent = `Seasons: ${item.Seasons}`;
+                        showEpisodes.textContent = `Episodes: ${item.Episodes}`;
+                        showCategory.textContent = `Category: ${item.Category}`;
                         modal.style.display = 'block';
                     });
-                    gamesContainer.appendChild(gameElement);
+                    showsContainer.appendChild(showElement);
                 });
             })
-            .catch(error => console.error('Error fetching games:', error));
+            .catch(error => console.error('Error fetching data:', error));
     };
 
     document.querySelectorAll('.category-button').forEach(button => {
         button.addEventListener('click', () => {
+            const table = button.getAttribute('data-table');
             const category = button.getAttribute('data-category');
-            loadGames(category);
+            loadShows(table, category);
         });
     });
 
@@ -55,5 +58,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Load the first category by default
-    loadGames('story');
+    loadShows('tvshows', 'comedy');
 });

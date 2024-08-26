@@ -3,32 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Reviews</title>
+    <title>Anime Reviews</title>
     <link rel="stylesheet" href="anime2.css">
 </head>
 <body>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search Anime..." />
+        <button id="search-button">Search</button>
+    </div>
+    
     <div class="container">
-        <h1>Game Categories</h1>
+        <h1>Anime Categories</h1>
         <div class="categories">
-            <button class="category-button" data-category="story">Story</button>
-            <button class="category-button" data-category="zombies">Zombies</button>
-            <button class="category-button" data-category="multiplayer">Multiplayer</button>
-            <!-- Add more categories as needed -->
+            <button class="category-button" data-table="animes" data-category="all">All Animes</button>
+            <button class="category-button" data-table="animes" data-category="adventure">Adventure Animes</button>
+            <button class="category-button" data-table="animes" data-category="action">Action Animes</button>
+            <button class="category-button" data-table="animes" data-category="thriller">Thriller Animes</button>
+            <button class="category-button" data-table="animes" data-category="sci-fi">Sci-Fi Animes</button>
         </div>
 
-        <div class="games" id="games"></div>
+        <!-- Ensure this has an id instead of class -->
+        <div id="animes"></div>
     </div>
 
-    <!-- Modal for game details -->
-    <div id="game-modal" class="modal">
+    <!-- Modal for anime details -->
+    <div id="anime-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <img id="game-image" src="" alt="Game Image">
-            <h3 id="game-title"></h3>
-            <p id="game-rating"></p>
-            <p id="game-developer"></p>
-            <p id="game-release-year"></p>
-            <p id="game-description"></p>
+            <img id="anime-image" src="" alt="Anime Image">
+            <h3 id="anime-title"></h3>
+            <p id="anime-age-rating"></p>
+            <p id="anime-review-score"></p>
+            <p id="anime-seasons"></p>
+            <p id="anime-episodes"></p>
+            <p id="anime-category"></p>
+
+            <form action="" method="post" class="star-rating-form">
+                <input type="hidden" id="movie-id" name="movie_id" value="">
+                <div class="star-rating">
+                    <input type="radio" id="5-stars" name="rating" value="5" />
+                    <label for="5-stars" class="star">&#9733;</label>
+    
+                    <input type="radio" id="4-stars" name="rating" value="4" />
+                    <label for="4-stars" class="star">&#9733;</label>
+    
+                    <input type="radio" id="3-stars" name="rating" value="3" />
+                    <label for="3-stars" class="star">&#9733;</label>
+    
+                    <input type="radio" id="2-stars" name="rating" value="2" />
+                    <label for="2-stars" class="star">&#9733;</label>
+    
+                    <input type="radio" id="1-star" name="rating" value="1" />
+                    <label for="1-star" class="star">&#9733;</label>
+                </div>
+                <button type="submit">Submit Rating</button>
+            </form>
         </div>
     </div>
 

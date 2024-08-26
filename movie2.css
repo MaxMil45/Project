@@ -54,10 +54,8 @@ body {
 }
 
 .movie img {
-    width: 80%; /* Reduced width of the image */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
     border-radius: 4px;
-    margin-bottom: 10px; /* Space below the image */
 }
 
 /* Modal styles */
@@ -101,4 +99,54 @@ body {
     color: #f40612;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Star rating styles */
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.star-rating input {
+    display: none; /* Hide the radio inputs */
+}
+
+.star-rating label {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 5px;
+}
+
+.star-rating input:checked ~ label {
+    color: gold; /* Color stars when selected */
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: gold; /* Color stars on hover */
+}
+
+/* Styling for the rating form */
+.star-rating-form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.star-rating-form button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #005cc4;
+    color: rgb(204, 255, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.star-rating-form button:hover {
+    background-color: #f40612;
 }

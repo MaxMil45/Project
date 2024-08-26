@@ -20,14 +20,20 @@ $table = isset($_GET['table']) ? $_GET['table'] : 'games';
 $category = isset($_GET['category']) ? $_GET['category'] : 'story';
 
 // Validate table parameter
-$allowed_tables = ['games', 'movies'];
+$allowed_tables = ['games', 'movies', 'tvshows', 'animes']; // Updated to include 'tv' and 'anime'
 if (!in_array($table, $allowed_tables)) {
     die(json_encode(["error" => "Invalid table parameter"]));
 }
 
-// Prepare SQL query with a prepared statement
-$stmt = $conn->prepare("SELECT * FROM $table WHERE category = ?");
-$stmt->bind_param("s", $category);
+// Prepare SQL query
+if ($category === 'all') {
+    // Select all records if the category is 'all'
+    $stmt = $conn->prepare("SELECT * FROM $table");
+} else {
+    // Select records that match the specified category
+    $stmt = $conn->prepare("SELECT * FROM $table WHERE category = ?");
+    $stmt->bind_param("s", $category);
+}
 
 // Execute the statement
 $stmt->execute();
@@ -41,8 +47,11 @@ while ($row = $result->fetch_assoc()) {
     $data[] = $row;
 }
 
-// Output JSON
-echo json_encode($data);
+if (empty($data)) {
+    echo json_encode(["error" => "No results found for the specified category."]);
+} else {
+    echo json_encode($data);
+}
 
 // Close statement and connection
 $stmt->close();
